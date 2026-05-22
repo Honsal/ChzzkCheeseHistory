@@ -1,0 +1,148 @@
+@charset "utf-8";
+
+[data-visible="block"] {display: block !important;}
+[data-visible="flex"] {display: flex !important;}
+[data-visible="none"] {display: none !important;}
+
+#cheeseHistoryModal {position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 999999; display: flex; justify-content: center; align-items: center; background: rgba(0,0,0,0.5); font-size: 14px;}
+#cheeseHistoryModal .cch_content {position: relative; width: 70vw; height: 80vh; background: white; border-radius: 16px; padding: 20px; overflow: auto;}
+
+#cheeseHistoryModal #closeModalBtn {position: absolute; top: 3%; width: 34px; height: 34px; border: none; border-radius: 50%; cursor: pointer; transition: 0.2s; background: #fff; color: #222; z-index: 9999999;}
+#cheeseHistoryModal #closeModalBtn:hover {background: #e0e0e0;}
+
+#cheeseHistoryModal .cch_button_container {background-color: #4e41db; color: #fff; height: 37px; min-width: 76px; align-items: center; border-radius: 5px; display: inline-flex; font-size: 16px; font-weight: 900; justify-content: center; line-height: 18px; padding: 0 15px; position: relative; vertical-align: top; margin-left: 10px;}
+#cheeseHistoryModal .cch_button_container:hover {background-image: linear-gradient(0deg, rgba(0, 0, 0, .1), rgba(0, 0, 0, .1));}
+#cheeseHistoryModal .cch_button_container_fit {background-color: #4e41db; color: #fff; border-radius: 5px; font-size: 14px; line-height: 18px; padding: 3px 5px 3px 5px; vertical-align: top;}
+#cheeseHistoryModal .cch_button_container_fit:hover {background-image: linear-gradient(0deg, rgba(0, 0, 0, .1), rgba(0, 0, 0, .1));}
+
+#cheeseHistoryModal .history {display: flex; margin: 0 auto; width: 100%;}
+#cheeseHistoryModal .history .history_ul {width: 100%;}
+#cheeseHistoryModal .history .history_ul .history_li+.history_li {padding-top: 20px;}
+
+#cheeseHistoryModal #totalContainer {margin: 15px 5px; justify-content: space-between; color: #222;}
+#cheeseHistoryModal #totalPayAmount {margin-right: 15px; color: #222;}
+
+#cheeseHistoryModal .cch_form_wrapper {background-color: #fff; border: 1px solid transparent; border-radius: 10px; box-shadow: 0 0 2px rgba(0, 0, 0, .05), 0 2px 8px rgba(0, 0, 0, .1); padding: 20px; width: 100%;}
+
+#cheeseHistoryModal .cch_tab_container_mode {display: flex; position: relative; width: 260px;}
+#cheeseHistoryModal .cch_tab_container_mode:before {background-color: #ddd; bottom: 0; content: ""; height: 1px; left: 0; position: absolute; right: 0;}
+#cheeseHistoryModal .cch_tab_container_mode .cch_tab_item {flex: 1 1; min-width: auto;}
+#cheeseHistoryModal .cch_tab_container_mode .cch_tab_item+.cch_tab_item {border-left: 1px solid #ddd;}
+#cheeseHistoryModal .cch_tab_container_mode .cch_tab_button {font-size: 15px; line-height: 16px; padding: 14px 20px 14px;}
+
+#cheeseHistoryModal .cch_tab_list_mode {border-radius: 8px; flex: 1 1; counter-reset: count; display: inline-flex; overflow: hidden; position: relative; vertical-align: top;}
+#cheeseHistoryModal .cch_tab_list_mode:before {border: solid #ddd; border-radius: inherit; border-width: 1px 1px 0; bottom: 0; content: ""; left: 0; position: absolute; right: 0; top: 0;}
+
+#cheeseHistoryModal .cch_tab_container {margin-bottom: 10px; display: flex; gap: 0 30px; justify-content: space-between; position: relative; width: 100%;}
+#cheeseHistoryModal .cch_tab_container:before {background-color: #ddd; bottom: 0; content: ""; height: 1px; left: 0; position: absolute; right: 0;}
+#cheeseHistoryModal .cch_tab_container .cch_selectbox {display: flex; flex: none; gap: 0 8px;}
+#cheeseHistoryModal .cch_tab_container .cch_tab_item {flex: 1 1; min-width: auto;}
+#cheeseHistoryModal .cch_tab_container .cch_tab_item+.cch_tab_item {border-left: 1px solid #ddd;}
+#cheeseHistoryModal .cch_tab_container .cch_tab_button {font-size: 15px; line-height: 16px; padding: 14px 20px 14px;}
+
+#cheeseHistoryModal .cch_tab_item {counter-increment: count; flex: 0 1 auto; min-width: 170px; overflow: hidden; position: relative;}
+
+#cheeseHistoryModal .cch_tab_button {color: #9da5b6; display: block; width: 100%;}
+#cheeseHistoryModal .cch_tab_button.on {background-color: #4e41db; color: #fff;}
+
+#cheeseHistoryModal .cch_tab_list {border-radius: 8px 8px 0 0; flex: 1 1; counter-reset: count; display: inline-flex; max-width: 320px; overflow: hidden; position: relative; vertical-align: top;}
+#cheeseHistoryModal .cch_tab_list:before {border: solid #ddd; border-radius: inherit; border-width: 1px 1px 0; bottom: 0; content: ""; left: 0; position: absolute; right: 0; top: 0;}
+
+#cheeseHistoryModal .cch_selectbox_container {display: inline-block; position: relative; vertical-align: top;}
+
+#cheeseHistoryModal .cch_selectbox_component {background-color: #fff; border: 1px solid #ddd; border-radius: 5px; color: #697183; padding: 0 14px; width: 100%; font-size: 13px; height: 37px;}
+#cheeseHistoryModal .cch_selectbox_component.cch_selectbox_is_focused {border-color: #4e41db;}
+#cheeseHistoryModal .cch_selectbox_component.cch_selectbox_is_focused .cch_selectbox_icon_arrow {transform: rotate(180deg);}
+
+#cheeseHistoryModal .cch_selectbox_inner {display: flex; justify-content: space-between; width: 100%; column-gap: 8px;}
+#cheeseHistoryModal .cch_selectbox_icon_arrow {color: #aeb4c2; flex: none; margin-top: 3px;}
+#cheeseHistoryModal .cch_selectbox_layer {word-wrap: break-word; background-color: #fff; border: 1px solid #ddd; border-radius: 5px; box-shadow: 0 0 2px rgba(0, 0, 0, .05), 0 2px 8px rgba(0, 0, 0, .1); max-height: 350px; overflow-y: auto; padding: 5px 0; position: absolute; right: 0; left: 0; top: calc(100% + 3px); white-space: nowrap; word-break: break-all; z-index: 100;}
+#cheeseHistoryModal .cch_selectbox_item {padding: 1px 5px;}
+#cheeseHistoryModal .cch_selectbox_option {align-items: center; border-radius: 5px; color: #222; display: -ms-flexbox; display: flex; font-size: 14px; letter-spacing: -.5px; line-height: 20px; padding: 9px 10px; text-align: left; width: 100%;}
+
+#cheeseHistoryModal #channelListContainer {margin-top: 10px;}
+
+#cheeseHistoryModal #cch_channelList {display: flex; flex-wrap: wrap; gap: 10px; justify-content: start;}
+#cheeseHistoryModal #cch_channelList button {display: inline-block; margin: 5px; border: 1px solid #ddd; border-radius: 10px; background-color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); text-align: center; transition: transform 0.2s ease, box-shadow 0.2s ease; position: relative;}
+#cheeseHistoryModal #cch_channelList button:hover {transform: scale(1.05); background-color: #e6e6e6; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);}
+#cheeseHistoryModal #cch_channelList button p {margin: 5px; font-weight: bold; font-size: 14px; color: #222;}
+
+#cheeseHistoryModal .channelImg {border-radius: 10px; background-color: white; display: block; margin: auto; width: 150px; height: 150px; object-fit: cover; overflow: hidden; margin: 5px;}
+#cheeseHistoryModal .cheeseImg {height: 35px; display: block; position: absolute; margin: 3px 0 0 8px;}
+
+#cheeseHistoryModal #channelInfoYear {margin-top: 10px;}
+#cheeseHistoryModal #channelInfoYear li+li{margin-top: 5px;}
+
+#cheeseHistoryModal #channelHistory {color: #222;}
+#cheeseHistoryModal #channelHistoryCalendar #channelHistoryCalendarUl #channelHistoryCalendarheaderLi {display: flex; justify-content: space-between; align-items: center; height: 40px; color: #222;}
+#cheeseHistoryModal #channelHistoryCalendar #channelHistoryCalendarUl #channelHistoryCalendarheaderLi .cheese_history button {color: #222;}
+#cheeseHistoryModal #channelHistoryCalendar .calendar_header {display: flex; gap: 20px; align-items: center;}
+#cheeseHistoryModal #channelHistoryCalendar .cheese_history ul {display: flex; gap: 8px; align-items: center;}
+#cheeseHistoryModal #channelHistoryCalendar .subscription_history ul {display: flex; gap: 13px; align-items: center;}
+
+@media(max-width: 980px) {
+    #cheeseHistoryModal #channelHistoryCalendar .calendar_month_total h3 {display: none;}
+}
+
+#cheeseHistoryModal .calendar_month_total {display: flex; justify-content: start; width: 350px; margin-left: 5px; font-size: 14px;}
+
+#cheeseHistoryModal .cheese_history {display: flex; justify-content: end; width: 350px; margin-right: 5px;}
+#cheeseHistoryModal .cheese_history button {font-size: 14px;}
+#cheeseHistoryModal .subscription_history {display: flex; justify-content: end; width: 350px; margin-right: 5px;}
+#cheeseHistoryModal .subscription_history button {font-size: 14px;}
+
+#cheeseHistoryModal .cheese_history_button {height: 30px;}
+
+#cheeseHistoryModal .today {border: 2px solid #4e41db !important;}
+#cheeseHistoryModal .focus_day {border: 2px solid #db4141 !important;}
+
+#cheeseHistoryModal .calendar_container {margin-top: 10px;}
+#cheeseHistoryModal .calendar_container .days .day:first-child {color: red;}
+#cheeseHistoryModal .calendar_container .dates tr td:first-child .this h4 {color: red;}
+#cheeseHistoryModal .calendar_container .days .day:last-child {color: blue;}
+#cheeseHistoryModal .calendar_container .dates tr td:last-child .this h4 {color: blue;}
+
+#cheeseHistoryModal .calendar {width: 100%; height: 600px;}
+
+#cheeseHistoryModal .days {text-align: center;}
+#cheeseHistoryModal .days th {border: 1px solid #d9d9d9; border-radius: 5px;}
+#cheeseHistoryModal .days .day {padding: 10px 0; color: #222;}
+
+#cheeseHistoryModal .dates .date {border: 1px solid #d9d9d9; width: calc(100% / 7); height: calc(100% / 6); vertical-align: top; text-align: left; color: #222;}
+#cheeseHistoryModal .dates .date span h4 {margin: 10px 0 0 10px;}
+#cheeseHistoryModal .dates .date .date_inner {text-align: center; margin-top: 10px;}
+
+#cheeseHistoryModal .other {color:rgba(0, 0, 0, .4);}
+
+#cheeseHistoryModal .cheeseDate {height: 20px;}
+#cheeseHistoryModal .cheeseDate_span {position: absolute;}
+#cheeseHistoryModal .cheeseDate:first-child {margin-left: 5px;}
+
+#cheeseHistoryModal .check-box {position: relative;}
+#cheeseHistoryModal .check-box input[type="checkbox"] {position: absolute; width: 0; height: 0; opacity: 0; z-index: -1;}
+#cheeseHistoryModal .check-box label {cursor: pointer;} 
+#cheeseHistoryModal .check-box .chkbox {display: inline-block; vertical-align: middle; transform: translateY(-2px); width: 20px; height: 20px; position: relative; border-radius: 3px; box-sizing: border-box; margin-right:5px;}
+#cheeseHistoryModal .check-box .chk-svg {overflow: hidden; position: absolute; left: -2px; top: -2px;}
+#cheeseHistoryModal .check-box .chk-svg path{fill: none; stroke-dashoffset: 72px; stroke-dasharray: 72px; transition: all .5s;}
+#cheeseHistoryModal .check-box .chk-svg polyline {fill: none; stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round; stroke-dashoffset: 18px; stroke-dasharray: 18px; transition: all .5s ease;}
+#cheeseHistoryModal .check-box label:hover .chk-svg path {stroke-dashoffset: 0px;}
+#cheeseHistoryModal .check-box input[type="checkbox"]:checked ~ .chkbox path {stroke-dashoffset: 0px;}
+#cheeseHistoryModal .check-box input[type="checkbox"]:checked ~ .chkbox polyline {stroke-dashoffset: 0px;}
+#cheeseHistoryModal .check-box .chkbox {border: 2px solid #ddd;}
+#cheeseHistoryModal .check-box .chk-svg path {stroke: #4e41db;}
+#cheeseHistoryModal .check-box input[type="checkbox"]:checked ~ .chkbox path {fill: #4e41db;}
+#cheeseHistoryModal .check-box .chk-svg polyline {stroke: #fff;}
+
+#cheeseHistoryModal .radio-box {--radio: #4e41db; display: flex; align-items: center;}
+#cheeseHistoryModal .radio-box input[type="radio"] {margin: 0; border-radius: 50%; position: relative; width: 18px; height: 18px; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-right: 10px; cursor: pointer; top: 0;} 
+#cheeseHistoryModal .radio-box input[type="radio"]::before {content: ''; width: 100%; height: 100%;  border-radius: 50%; position: relative; background: #fff; position: absolute; left: 0; top: 0; z-index: 1; opacity: 1; transition: opacity 0s linear .5s;} 
+#cheeseHistoryModal .radio-box input[type="radio"]:checked::before {opacity: 1;  transition: none;}
+#cheeseHistoryModal .radio-box input[type="radio"] {border: 1px solid #ccc;}
+#cheeseHistoryModal .radio-box input[type="radio"]:checked {border: 1px solid var(--radio);}
+#cheeseHistoryModal .radio-box input[type="radio"]:hover {border: 1px solid var(--radio);}
+#cheeseHistoryModal .radio-box label {display: flex; margin-right: 15px; align-items: center; cursor: pointer;}
+#cheeseHistoryModal .radio-box input[type="radio"]::after {content: ''; width: 10px; height: 10px; display: flex; align-items: center; justify-self: center; background: var(--radio); border-radius: 50%; position: absolute; transition: transform .5s cubic-bezier(0.48,1.97,0.5,0.63); transform: translateX(200%); z-index: 1;}
+#cheeseHistoryModal .radio-box input[type="radio"]:checked::after {transform: translateX(0%);}
+#cheeseHistoryModal .radio-box input[type="radio"]:checked ~ input[type="radio"]::after { transform: translateX(-200%);}
+
+#cheeseHistoryModal .mb10 {margin-bottom: 10px;}

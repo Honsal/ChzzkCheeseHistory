@@ -1,144 +1,23 @@
-## 치지직 치즈 후원 내역
-링크 : https://chzzk-cheese-history.pages.dev
+# Chzzk Cheese History (Firefox Fork)
 
-개인적으로 스트리머별 후원 내역을 확인하고 싶어 제작했으며, Windows OS 및 PC에서의 사용을 전제로 제작하였습니다.\
-추후 치지직의 API 데이터 제공 방식 및 구조가 변경될 경우 기능이 정상적으로 동작하지 않을 수 있습니다.
+Firefox용 Chzzk Cheese History 확장 프로그램 포크입니다.
 
-오픈소스 라이브러리
-- `Chart.js`
+- Upstream: https://github.com/alsrbxo0428/ChzzkCheeseHistory
+- Fork: https://github.com/Honsal/ChzzkCheeseHistory
+- 기능: 치지직 치즈 후원 및 구독 선물 내역을 연도별/월별 통계로 표시
+- 배포 방식: Firefox self-distribution / unlisted signing 대상
 
-## 확장 프로그램  
-- Chrome 웹 스토어
-    - [Chzzk Cheese History](https://chromewebstore.google.com/detail/chzzk-cheese-history/gcojgdbmkogicdbkcofejogigdlfgkob)
+## Firefox packaging
 
-- [endlifeform] 님 제작
-    - https://github.com/endlifeform/ChzzkCheeseHistory
+```bash
+npx web-ext lint --source-dir . --self-hosted
+npx web-ext build --source-dir . --artifacts-dir dist --overwrite-dest
+WEB_EXT_API_KEY=... WEB_EXT_API_SECRET=... \
+  npx web-ext sign --source-dir . --artifacts-dir dist --channel unlisted
+```
 
-## 업데이트 내역
+Manifest V3 Firefox 요구사항 때문에 `browser_specific_settings.gecko.id`,
+`browser_specific_settings.gecko.data_collection_permissions`, 그리고
+`background.scripts` fallback을 포함합니다.
 
-### 2026.05.19
-- favicon 및 아이콘 변경
-    - ChatGPT를 통해 생성
-
-### 2026.05.18
-- TTS 금액 및 횟수 별도 표시 추가
-
-### 2026.05.12
-- chart.js 라이브러리 참조 방식 변경
-    - cdn -> libs/chart.umd.js (로컬소스참조)
-- 치즈 후원 내역 조회 확장 프로그램 추가
-    - https://github.com/alsrbxo0428/ChzzkCheeseHistory/releases/tag/Chzzk_Cheese_History 참고
-- monthArr, yearArr 초기화 코드 변경
-
-### 2026.01.04
-- 2026년 안나오는 오류 수정
-
-### 2025.07.25
-- 로컬스토리지 가져오기 버튼 클릭시 달력 영역 visible = none 처리
-
-### 2025.07.23
-- 후원/구독선물 내역 직접입력 기능 추가
-
-### 2025.07.12
-- 구독선물 내역 총합 계산에 사용되는 데이터 수정
-    - quantity -> historyQuantity
-
-### 2025.03.28
-- 구독선물 내역 확인 페이지 추가
-- inline style display로 관리하던 요소들을 data-visible 속성으로 변경
-
-### 2025.03.07
-- 네이버 게임 프로필 이동 이미지를 네이버 게임 로고 이미지로 변경
-
-### 2025.03.05
-- chgCalendarDate 함수 동작 로직 순서 수정
-
-### 2025.02.28
-- 치지직 치즈 후원 내역 링크 변경
-    - Github pages -> Cloudflare pages 변경
-- 후원 금액에 유료 TTS 금액 미포함으로 수정
-
-### 2025.02.27
-- 로컬 스토리지 팝업 내 버튼 위치 변경
-
-### 2025.02.25
-- 첫 치즈 후원일과 치즈달성일이 같은 경우 치즈달성일이 다음 후원일로 표시되는 현상 수정
-- 일일 치즈 달성이 여러 개인 경우 이미지가 겹치는 현상 수정
-- 달력 상단 TODAY 버튼 추가
-- data-key을 이용한 handleFocusChange1~3 함수들의 모듈화
-- data-visible을 이용한 display 속성 적용
-
-### 2025.02.20
-- 로컬 스토리지 관리 기능 추가
-- 달력의 치즈달성 이미지 좌측 공백 추가
-
-### 2025.02.17
-- 쿠키 사이즈의 한계로 로컬 스토리지로 변경 (버튼 임시 숨김처리)
-- favicon 이미지 재변경
-- 중간 커밋
-
-### 2025.02.07
-- 쿠키 관리 기능 개발중
-- 채널 리스트 CSS 수정
-    - 정렬 radio 버튼
-    - 각 스트리머 이미지 버튼
-- 그 외 기타 CSS 수정
-
-### 2025.02.05
-- 달력 오늘 날짜 테두리 표시
-- 첫 후원 날짜 팬 이미지 표시 (등록한 JSON 데이터 기준)
-
-### 2025.02.04
-- 달력 생성
-    - 월 총 후원 금액 출력
-    - 일일최고후원금액 표시 및 이동 버튼 생성
-    - 각 치즈별 달성일 이동 버튼 생성
-    - 날짜 별 후원 금액 및 횟수 출력
-    - 각 치즈 달성일 날짜 옆 치즈 이미지 표시 (등록한 JSON 데이터 기준)
-- 기타 CSS 수정
-
-### 2025.02.03
-- 채널 리스트과 후원내역 그래프 영역 분리
-- 그래프, 달력 탭 버튼 생성
-- 기타 CSS 수정
-
-### 2025.02.02
-- 버튼 hover 효과 추가
-- 파일 선택 버튼 변경
-
-### 2025.01.30
-- 치지직 스튜디오를 참고하여 디자인 수정
-- json 데이터 -> 객체 배열 변환 로직 수정
-- 치즈 내역 데이터 객체 배열 구조 변경
-    - 일별 후원 금액 및 횟수 추가
-    - 노랑 치즈, 분홍 치즈 달성 일자 추가
-- favicon 이미지 변경
-
-### 2025.01.25
-- 스트리머 목록의 정렬방식 선택 추가
-    - 닉네임 오름차순
-    - 후원금액 내림차순
-- 사용방법 업데이트
-
-### 2025.01.22
-- 스트리머 이미지 좌측상단에 치즈 이미지 추가
-
-### 2025.01.04
-- inline styles 를 class명으로 사용하도록 수정
-- 치지직 치즈 사용 내역 페이지 이동 버튼 추가
-- 개인 사용 목적 문구 추가
-
-### 2025.01.03
-- 툴팁 내용 수정
-    - {`title`: '연월', `label`: '월 후원 금액', `footer`: '월 후원 횟수'}
-
-### 2025.01.02
-- 여러 개의 JSON 파일을 한 번에 등록 가능하도록 코드 수정
-- 연도 별로 그래프 표출되도록 구현
-
-### 2024.12.31
-- 가로 막대 그래프에서 세로 막대 그래프로 변경
-- 스트리머 별 연간 후원 횟수 추가
-
-### 2024.12.31
-- 최초 커밋
+※ 본 확장 프로그램은 NAVER 또는 치지직의 공식 서비스가 아닙니다.
