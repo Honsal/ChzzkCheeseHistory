@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Chzzk Cheese History (Firefox Fork)",
+  "name": "Chzzk Cheese History Fork",
   "version": "1.1.1",
   "description": "치지직 치즈 후원 및 구독 선물 내역을 연도별/월별 통계로 보여주는 Firefox용 확장 프로그램",
   "browser_specific_settings": {
